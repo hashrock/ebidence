@@ -1,0 +1,42 @@
+<head>
+  <title>ebidence2</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <form class="post">
+    <input type="text" name="name">
+    <input type="submit" value="Add">
+  </form>
+  
+  {{#each posts}}
+    {{> post}}
+  {{/each}}
+</template>
+
+<template name="post">
+  <div class="posts">
+    <p>{{name}}</p>
+  {{#each tickets}}
+    {{> ticket}}
+  {{/each}}
+
+    <form class="ticket">
+      <input type="text" name="name">
+      <input type="submit" value="Add">
+    </form>
+
+  </div>
+</template>
+
+<template name="ticket">
+  <div class="tickets">
+    {{name}} - {{status}}
+    <button class="btn-ok">OK</button>
+    <button class="btn-ng">NG</button>
+    <button class="btn-none">-</button>
+  </div>
+</template>
