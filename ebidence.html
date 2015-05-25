@@ -1,0 +1,44 @@
+<head>
+  <title>ebidence</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  {{#each posts}}
+    {{> post}}
+  {{/each}}
+  <form class="post">
+    <input type="text" name="name" class="post__name">
+    <input type="submit" value="Add">
+  </form>
+</template>
+
+<template name="post">
+  <div class="posts">
+    <p><button class="post__del">x</button>{{name}}</p>
+    
+    {{#each tickets}}
+      {{> ticket}}
+    {{/each}}
+
+    <form class="ticket">
+      <input type="text" name="name" class="ticket__name">
+      <input type="submit" value="Add">
+    </form>
+  </div>
+</template>
+
+<template name="ticket">
+  <div class="tickets {{moreClasses}}">
+    {{name}}
+    <div class="tickets__nav">
+      <button class="btn btn-ok">OK</button>
+      <button class="btn btn-ng">NG</button>
+      <button class="btn btn-none">-</button>
+      <button class="btn btn-del">x</button>
+    </div>
+  </div>
+</template>

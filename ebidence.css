@@ -1,0 +1,50 @@
+.posts{
+	margin: 10px;
+	padding: 10px;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.tickets{
+	position: relative;
+	height: 1.5rem;
+}
+
+.tickets__nav{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.tickets--ok{
+	background: #DFD;
+}
+.tickets--ng{
+	background: #FDD;
+}
+.btn {
+  height: 1.5rem;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+}
+
+form.ticket {
+  display: flex;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+.ticket__name{
+	flex: 1;
+}
+
+form.post {
+  display: flex;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+
+.post__name{
+	flex: 1;
+}

@@ -14,11 +14,27 @@ if (Meteor.isClient) {
   Template.post.events({
     'submit form.ticket': function(e){
       e.preventDefault();
-      Tickets.insert({name: e.target.name.value, postId: this._id})
+      Tickets.insert({
+        name: e.target.name.value,
+        status: "",
+        postId: this._id,
+      });
+      e.target.name.value = "";
+    },
+    "click .post__del": function(e){
+      Posts.remove(this._id);
     }
   })
-  
+
   Template.ticket.helpers({
+    "moreClasses": function(){
+      var ticketMap = {
+        "OK": "tickets--ok",
+        "NG": "tickets--ng",
+        "": ""
+      }
+      return ticketMap[this.status];
+    }
   })
   Template.ticket.events({
     "click .btn-ok": function(){
@@ -29,9 +45,10 @@ if (Meteor.isClient) {
     },
     "click .btn-none": function(){
       Tickets.update(this._id, {$set: {status: ""}});
+    },
+    "click .btn-del": function(){
+      Tickets.remove(this._id);
     }
-
-    
   });
   
   
@@ -44,7 +61,8 @@ if (Meteor.isClient) {
   Template.hello.events({
     'submit form.post': function(e){
       e.preventDefault();
-      Posts.insert({name: e.target.name.value})
+      Posts.insert({name: e.target.name.value});
+      e.target.name.value = "";
     }
   });
 }
